@@ -1,3 +1,7 @@
+/**
+ Strings and Characters
+ */
+
 // 字符串字面量(String Literals)
 "Some string literal value"
 

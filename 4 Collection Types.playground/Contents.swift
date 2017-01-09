@@ -1,3 +1,6 @@
+/**
+ Collection Type 
+ */
 // Collection 分为 Arrays, Sets, Dictionaries(Collection，Sets有时都翻译成集合)
 
 // 数组(Arrays)是有序 数据的集。
