@@ -1,27 +1,5 @@
 /**
- Properties
- + 存储属性 Stored Properties （只能用于类和结构体）
- * 常量结构体的存储属性（常量结构的属性不能修改）
- * 延迟存储属性  `lazy var`
- - 必须将延迟存储属性声明成变量（使用var关键字），因为属性的初始值可能在实例构造完成之后才会得到。而**常量属性在构造过程完成之前必须要有初始值**，因此无法声明成延迟属性。
- - 如果一个被标记为lazy的属性在没有初始化时就同时被多个线程访问，则无法保证该属性只会被初始
- * 存储属性和实例变量 ??
- + 计算属性  getter (setter, `newValue`) （用于类、结构体和枚举）
- * 只读计算属性
- * 必须使用var关键字定义计算属性
- + 属性观察器(property observer)
- * 可以添加的：
- - 存储属性（除了延迟存储属性）
- - **重写的计算属性**
- * 每次属性被设置值的时候都会调用属性观察器
- * willSet (newValue)
- * didset (oldValue)
- + 全局变量和局部变量
- 全局的常量或变量都是延迟计算的（不需要`lazy`），局部范围的常量或变量不会延迟计算。
- + 类型属性（类似于静态属性）
- * 存储型类型属性是延迟初始化的
- * `static` `class`
- 
+ Properties 
  */
 
 // 存储属性 Stored Properties （只能用于类和结构体）
@@ -88,10 +66,81 @@ print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 // 只读计算属性
 struct Cuboid {
     var width = 0.0, height = 0.0, depth = 0.0
-    var volume: Double {
+    var volume: Double {    // 只用get时可简写
         return width*height*depth
     }
 }
 
 // 属性观察器
+// 设置属性时（就算值不变），就会调用`willSet`， `didSet`
+class StepCounter {
+    var totalSteps: Int = 0 {
+        willSet {
+            print("设置成\(newValue)")
+        }
+//        willSet(newTotalSteps) {
+//            print("About to set totalSteps to \(newTotalSteps)")
+//        }
+        didSet {
+            if totalSteps > oldValue  {
+                print("Added \(totalSteps - oldValue) steps")
+            }
+        }
+//        didSet(old) {
+//            print(old)
+//        }
+    }
+}
+let stepCounter = StepCounter()
+stepCounter.totalSteps = 1
+stepCounter.totalSteps = 20
 
+// 全局变量和局部变量
+// 计算属性和属性观察器所描述的功能也可以用于全局变量和局部变量
+
+// 类型属性：类型属性。用于某个类型所有实例共享的数据
+// 存储型类型属性是延迟初始化的
+struct SomeStructure {
+    static var storedTypeProperty = "Some value."
+    static var computedTypeProperty: Int {
+        return 1
+    }
+}
+enum SomeEnumeration {
+    static var storedTypeProperty = "Some value."
+    static var computedTypeProperty: Int {
+        return 6
+    }
+}
+class SomeClass {
+    static var storedTypeProperty = "Some value."
+    static var computedTypeProperty: Int {
+        return 27
+    }
+    class var overrideableComputedTypeProperty: Int {
+        return 107
+    }
+}
+SomeStructure.storedTypeProperty
+// 声道模型
+struct AudioChannel {
+    static let thresholdLevel = 10                          // 音量的最大 上限阈值
+    static var maxInputLevelForAllChannels = 0              // 实例的最大 音量
+    var currentLevel: Int = 0 {
+        didSet {
+            if currentLevel > AudioChannel.thresholdLevel {
+                // 将当前音量限制在阀值之内
+                currentLevel = AudioChannel.thresholdLevel
+            }
+            if currentLevel > AudioChannel.maxInputLevelForAllChannels {
+                // 存储当前音量作为新的最大输入音量
+                AudioChannel.maxInputLevelForAllChannels = currentLevel
+            }
+        }
+    }
+}
+var leftChannel = AudioChannel()
+var rightChannel = AudioChannel()
+leftChannel.currentLevel = 7
+print(leftChannel.currentLevel)
+print(AudioChannel.maxInputLevelForAllChannels)
