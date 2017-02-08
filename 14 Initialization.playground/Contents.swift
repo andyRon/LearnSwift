@@ -107,3 +107,97 @@ struct Rect {
 }
 
 // 类的继承和构造过程
+/* 指定构造器(designated initializers)：主要，至少有一个。一个指定构造器将初始化类中提供的所有属性，并根据父类链往上调用父类的构造器来实现父类的初始化。
+ init(parameters) {
+    statements
+ }
+ */
+/* 便利构造器(convenience initializers)：次要，辅助。
+ convenience init(parameters) {
+    statements
+ }
+ */
+// 类的构造器代理规则
+//  1 指定构造器必须调用其直接父类的的指定构造器。
+//  2 便利构造器必须调用同一类中定义的其它构造器。
+//  3 便利构造器必须最终导致一个指定构造器被调用。
+// 两段式构造过程
+//  第一阶段：每个存储型属性被引入它们的类指定一个初始值
+//  第二阶段：给每个类一次机会，在新实例准备使用之前进一步定制它们的存储型属性
+// 4种有效的安全检查(确保两段式构造过程能不出错地完成)
+//  1 指定构造器必须保证它所在类引入的所有属性都必须先初始化完成，之后才能将其它构造任务向上代理给父类中的构造器。(一个对象的内存只有在其所有存储型属性确定之后才能完全初始化)
+//  2 指定构造器必须先向上代理调用父类构造器，然后再为继承的属性设置新值。如果没这么做，指定构造器赋予的新值将被父类中的构造器所覆盖。
+//  3 便利构造器必须先代理调用同一类中的其它构造器，然后再为任意属性赋新值。如果没这么做，便利构造器赋予的新值将被同一类中其它指定构造器所覆盖。
+//  4 构造器在第一阶段构造完成之前，不能调用任何实例方法，不能读取任何实例属性的值，不能引用self作为一个值。
+// 构造器的继承和重写
+class Vehicle {
+    var numberOfWheels = 0
+    var description: String {
+        return "\(numberOfWheels) wheel(s)"
+    }
+}
+class Bicycle: Vehicle {
+    override init() {
+        super.init()            // 确保`Bicycle`在修改`Vehicle`的属性之前，它所继承的属性`numberOfWheels`能被`Vehicle`初始化
+        numberOfWheels = 2
+    }
+}
+let bicycle = Bicycle()
+bicycle.numberOfWheels
+// 注：子类可以在初始化时修改继承来的变量属性，但是不能修改继承来的常量属性。
+// 构造器的自动继承
+//  规则1：如果子类没有定义任何指定构造器，它将自动继承所有父类的指定构造器。
+//  规则2：如果子类提供了所有父类指定构造器的实现——无论是通过规则1继承过来的，还是提供了自定义实现——它将自动继承所有父类的便利构造器。
+// 指定构造器和便利构造器实践
+class Food {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    convenience init() {
+        self.init(name: "[Unnamed]")
+    }
+}
+let namedMeat = Food(name: "Bacon")
+let mysteryMeat = Food()
+class RecipeIngredient: Food {      // 食谱中的一项原料
+    var quantity: Int
+    init(name: String, quantity: Int) {
+        self.quantity = quantity
+        super.init(name: name)
+    }
+    override convenience init(name: String) {
+        self.init(name: name, quantity: 1)
+    }
+}
+let oneMysteryItem = RecipeIngredient()
+oneMysteryItem.quantity
+// `RecipeIngredient()`使用从`Food`自动继承的便利构造器`convenience init()`，并在这个便利构造器调用自身的`override convenience init(name: String)`
+let oneBacon = RecipeIngredient(name: "Bacon")
+let sixEggs = RecipeIngredient(name: "Eggs", quantity: 6)
+class ShoppingListItem2: RecipeIngredient {     // 购物单中出现的某一种食谱原料
+    var purchased = false
+    var description: String {
+        var output = "\(quantity) x \(name)"
+        output += purchased ? " 有" : " 无"
+        return output
+    }
+}
+var breakfastList = [
+    ShoppingListItem2(),
+    ShoppingListItem2(name: "Bacon"),
+    ShoppingListItem2(name: "Eggs", quantity: 6),
+]
+breakfastList[0].name = "Orange juice"
+breakfastList[0].purchased = true
+for item in breakfastList {
+    print(item.description)
+}
+
+// 可失败构造器
+
+// 必要构造器
+// 在类的构造器前添加`required`修饰符表明所有该类的子类都必须实现该构造器
+// 在重写父类中必要的指定构造器时，不需要添加 override 修饰符
+
+// 通过闭包或函数设置属性的默认值
