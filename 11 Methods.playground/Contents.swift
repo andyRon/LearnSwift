@@ -37,7 +37,7 @@ struct Point {
     }
 }
 // 在实例方法中修改值类型(Modifying Value Types from Within Instance Methods)
-// 结构体和枚举的属性不能在它的实例方法中被修改，但可通过`mutating`（可变方法）修改。
+// 结构体和枚举的属性不能在它的实例方法中被修改(因为结构体和枚举是值类型)，但可通过`mutating`（可变方法）修改。
 struct Point2 {
     var x = 0.0, y = 0.0
     mutating func moveByX(_ deltaX: Double, y deltaY: Double) {
