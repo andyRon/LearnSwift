@@ -25,7 +25,7 @@ var reversedNames2 = names.sorted(by: {(s1:String, s2:String) -> Bool in return 
 var reversedNames3 = names.sorted(by: {(s1, s2)->Bool in return s1>s2})
 // 根据上下文推断类型(Inferring Type From Context)  省略 return 和 返回值
 var reversedNames4 = names.sorted(by: {(s1, s2) in s1>s2})
-// 参数名称缩写(Shorthand Argument Names)
+// 参数名称缩写(Shorthand Argument Names)：直接通过 $0 ， $1 ， $2 来顺序调用闭包的参数
 var reversedNames5 = names.sorted(by: {$0>$1})
 // 运算符方法(Operator Methods)
 var reversedNames6 = names.sorted(by: >)
