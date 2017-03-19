@@ -1,0 +1,9 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+use_frameworks!
+
+target 'Test' do
+   pod 'Alamofire', '~> 4.4'
+   pod 'Kingfisher', '~> 3.5'
+   pod 'RandomKit', '~> 4.2.0'
+end
