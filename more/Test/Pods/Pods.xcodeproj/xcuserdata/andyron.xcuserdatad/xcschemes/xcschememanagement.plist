@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FileKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PathKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,12 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05A00E2CCC57ED15879C57C49EB9C7D6</key>
+		<key>0153A5C153BC9DEA1FE9A1773755347D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62DAD66A90EA823A429BB0BE3DD41643</key>
+		<key>2B9CEF899718DA400C3D4704982CEB42</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>68B95A830B411A482C1E94A6A797D289</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BBB46569A79C52426939AF96DA290CF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C4944FEC314D1A66588651D006273ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EEECA578A5572537199DC860CCD9DF96</key>
+		<key>EE5568CD1227C620A2438E52FF5F6D9C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

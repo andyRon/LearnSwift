@@ -90,13 +90,17 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FileKit/FileKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PathKit/PathKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RandomKit/RandomKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ShiftOperations/ShiftOperations.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FileKit/FileKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PathKit/PathKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RandomKit/RandomKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ShiftOperations/ShiftOperations.framework"
 fi

@@ -6,4 +6,6 @@ target 'Test' do
    pod 'Alamofire', '~> 4.4'
    pod 'Kingfisher', '~> 3.5'
    pod 'RandomKit', '~> 4.2.0'
+   pod 'FileKit', '~> 4.0.0'
+   pod 'PathKit', '~> 0.8.0'
 end

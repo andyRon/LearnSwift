@@ -10,6 +10,8 @@ import UIKit
 import Kingfisher
 import Alamofire
 import RandomKit
+import FileKit
+import PathKit
 
 class ViewController: UIViewController {
 
@@ -18,10 +20,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        RandomKit()
+        let path = Path("/usr/bin/swift")
+        print(path.isFile)
         
-        let value = Int.random(using: &Xoroshiro.default)
-
-        print(value)
     }
 
     func Kingfisher() {
@@ -29,7 +31,7 @@ class ViewController: UIViewController {
     }
 
     func RandomKit() {
-        
+        print(Int.random(within: -100 ... 100, using: &Xorshift.default) )
     }
 
 }
