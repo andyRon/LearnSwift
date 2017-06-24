@@ -2,7 +2,7 @@
  The Basics
  */
 
-//常量和变量
+// 1 常量和变量(Constants and Variables)
 // 声明：常量 let 变量 var
 let constants = 10
 var variables = 0
@@ -10,18 +10,20 @@ var variables = 0
 var x = 0.0, y = 0.0, z = 0.0
 // 类型标注(type annotation)
 var welcomeMessage: String
+// 常量和变量的命名
 // 常量与变量名不能包含数学符号，箭头，保留的(或者非法的)Unicode 码位，连线与制表符。也不能以数字开头。
 // 常量与变量不能修改类型也不能互换
 // 使用反引号（`）来使用保留关键字
 let π = 3.14159
 let 你好 = "你好世界"
 let `let` = "hihi"
-// 输出 `print(_:separator:terminator:)`  三种参数：输出项、分隔符、结束符
+// 输出常量和变量 `func print(_ items: Any..., separator: String = default, terminator: String = default)`  三种参数：输出项、分隔符、结束符
 print(1,`let`, separator: ",", terminator: "<br/>")
+print(x, y, z, `let`)
 // 字符串插值(string interpolation)
 print("The current value of constants is \(constants)")
 
-// 注释
+// 2 注释(Comment)
 // 单行注释
 /*
  /*
@@ -29,13 +31,14 @@ print("The current value of constants is \(constants)")
   */
  */
 
-// 分号   单行单挑语句不一定需要，单行多条语句必须
+// 3 分号(Semicolons)   单行单挑语句不一定需要，单行多条语句必须
 let cat = "?"; print(cat)
 
-//整数
+// 4 整数(Integers)
 // U代表无符号
 // Int类型与当前系统的位数相同
 UInt8.max
+UInt8.min
 Int8.max
 Int32.max
 UInt32.max
@@ -43,15 +46,15 @@ Int64.max
 UInt64.max
 Int.max
 
-// 浮点数
-Double(11.1)
-Float(11.1)
+// 5 浮点数(Floating-Point Numbers)
+Double(11.1)                        // 64位
+Float(11.1)                         // 32位
 
-// 类型安全(type safe)和类型推断(type inference)
+// 6 类型安全(type safe)和类型推断(type inference)
 let meaningOfLife = 42              // meaningOfLife 会被推测为 Int 类型
 let pi = 3.14159                    // pi 会被推测为 Double 类型(优先选择 Double 而不是 Float )
 
-// 数值型字面量
+// 7 数值型字面量(Numeric Literals)
 // 整数字面量
 15
 0b1111                              // 二进制15
@@ -65,7 +68,7 @@ let pi = 3.14159                    // pi 会被推测为 Double 类型(优先�
 0xC.3p0                             // (12+3/16)*2^0
 100_000                             // _增强可读性
 
-// 数值型类型转换
+// 8 数值型类型转换(Numeric Type Conversion)
 // 整数转换
 let twoThousand: UInt16 = 2_000
 let one: UInt8 = 1
@@ -77,15 +80,15 @@ let pi2 = Double(three) + pointOneFourOneFiveNine
 let integerPi = Int(pi2)
 let pi3 = 3 + 0.14159                                       // 字面量没有特定的类型，所以可以直接相加
 
-// 类型别名(type aliases)
+// 9 类型别名(type aliases)
 typealias AudioSample = UInt16
 AudioSample.max
 
-// 布尔值
+// 10 布尔值
 true
 false
 
-// 元组(tuples) 把多个值组合成一个复合值
+// 11 元组(tuples) 把多个值组合成一个复合值
 // 元组在临时组织值的时候很有用，但是并不适合创建复杂的数据结构。
 let http404Error = (404, "Not Found")                       // 一个类型为 (Int, String) 的元组， 用于描述 HTTP 状态码
 let (statusCode, statusMessage) = http404Error              // 元组的内容分解(decompose)
@@ -94,7 +97,7 @@ http404Error.0                                              // 下标访问
 let http200Status = (statusCode: 200, description: "OK")    // 给元组元素命名
 http200Status.description
 
-// 可选类型(optionals)
+// 12 可选类型(optionals)
 // 声明一个可选常量或者变量但是没有赋值，它们会自动被设置为 nil
 var optionalString: String?                                 // optionalString的类型要么是String，要么是nil
 let possibleNumber = "123"
@@ -125,7 +128,7 @@ if assumedString != nil {
     print(assumedString)
 }
 
-// 错误处理
+// 13 错误处理
 func canThrowAnErrow() throws {
     // 这个函数有可能抛出错误
 }
@@ -150,7 +153,7 @@ do {
     // buyGroceries
 }
 
-// 断言(assertion)
+// 14 断言(assertion)
 let age = -3
 //assert(age >= 0, "A person's age cannot be less than zero")
 

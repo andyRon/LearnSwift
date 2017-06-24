@@ -20,10 +20,26 @@ for s in "andyron".characters {
 }
 
 // while
-
+var i = 1
+while i > 10 {
+    // ...
+    i += 1
+}
 // repeat-while 类似其他语言的 do-while 
+repeat {
+    // ...
+    i += 1
+} while  i > 10
 
 // if 
+var temperatureInFahrenheit = 30
+if temperatureInFahrenheit <= 32 {
+    print("It's very cold. Consider wearing a scarf.")
+} else if temperatureInFahrenheit >= 86 {
+    print("It's really warm. Don't forget to wear sunscreen.")
+} else {
+    print("It's not that cold. Wear a t-shirt.")
+}
 
 // switch
 // 不存在隐式的贯穿(No Implicit Fallthrough)，不需要break
