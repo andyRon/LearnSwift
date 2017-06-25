@@ -6,7 +6,7 @@
 // 成员值(或成员)  原始值  关联值
 // 不会被赋予一个默认的整型值
 
-// 枚举语法
+// 1 枚举语法
 enum CompassPoint {
     case North
     case South
@@ -19,7 +19,7 @@ enum Planet {
 var directionToHead = CompassPoint.West
 directionToHead = .East
 
-// Switch 语句匹配枚举值
+// 2 Switch 语句匹配枚举值
 switch directionToHead {
     case .North:
         print("Lots of planets have a north")
@@ -31,13 +31,12 @@ switch directionToHead {
         print("Where the skies are blue")
 }
 
-// 关联值(Associated Values)  任意类型，可以各不相同
+// 3 关联值(Associated Values)  任意类型，可以各不相同
 // “定义一个名为 Barcode 的枚举类型，它的一个成员值是具有 (Int，Int，Int，Int) 类型关联值的 UPCA ，另一个成员值是具有 String 类型关联值的 QRCode 。”
 enum Barcode {
     case UPCA(Int, Int, Int, Int)
     case QRCode(String)
 }
-
 var productBarcode = Barcode.UPCA(8, 85909, 51226, 3)
 productBarcode = .QRCode("ABCDEFGHIJKLMNOP")
 switch productBarcode {
@@ -46,4 +45,8 @@ case .UPCA(let numberSystem, let manufacturer, let product, let check):
 case .QRCode(let productCode):
     print("QR code: \(productCode).")
 }
+
+// 4 原始值(Raw Values)
+
+// 5 递归枚举(Recursive Enumerations)
 

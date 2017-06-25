@@ -3,7 +3,7 @@
  */
 // Collection 分为 Arrays, Sets, Dictionaries(Collection，Sets有时都翻译成集合)
 
-// 1 数组(Arrays)是有序 数据的集。
+// 1 数组(Arrays)是有序数据的集。
 // 一个数组中只能有一种数据类型
 var someInts = [Int]()                                              // 创建一个由特定数据类型构成的空数组
 someInts = []                                                       // someInts 现在是空数组，但是仍然是 [Int] 类型的。
@@ -95,6 +95,8 @@ airports.isEmpty
 airports["hongqiao"] = "shanghai"
 airports.updateValue("nanjing", forKey: "jichang")
 airports["jichang"] = nil; //airports.remove(at: "jichang")
+airports.keys
+airports.values
 // 遍历
 for (code, name) in airports {
 }

@@ -5,7 +5,7 @@
  */
 // 扩展可以为一个类型添加新的功能，但是不能重写已有的功能。
 
-// 扩展语法(Extension Syntax)
+// 1 扩展语法(Extension Syntax)
 /**
  extension SomeType {
     // 为 SomeType 添加的新功能写到这里
@@ -25,9 +25,9 @@ extension Double {
     var ft: Double { return self / 3.28084 }
 }
 let oneInch = 25.4.mm
-// 扩展可以添加新的计算型属性，但是不可以添加存储型属性，也不可以为已有属性添加属性观察器。
+// 2 扩展可以添加新的计算型属性，但是不可以添加存储型属性，也不可以为已有属性添加属性观察器。
 
-// 构造器(Initializers)
+// 3 构造器(Initializers)
 struct Size {
     var width = 0.0, height = 0.0
 }
@@ -49,7 +49,7 @@ extension Rect {
 }
 let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size(width: 3.0, height: 3.0))
 
-// 方法(Methods)
+// 4 方法(Methods)
 extension Int {
     func repetitions(task: () -> Void) {      // 将闭包中的任务执行整数对应的次数
         for _ in 0..<self {
@@ -69,7 +69,7 @@ extension Int {
 var someInt = 3
 someInt.square() // 不能直接用字面量`3.square()`
 
-// 下标(Subscripts)
+// 5 下标(Subscripts)
 extension Int {
     subscript(digitIndex: Int) ->Int {
         var decimalBase = 1
@@ -81,7 +81,7 @@ extension Int {
 }
 12345678[2]
 
-// 嵌套类型(Nested Types)
+// 6 嵌套类型(Nested Types)
 extension Int {
     enum Kind {
         case Negative, Zero, Positive

@@ -5,7 +5,7 @@
 // Swift 中的闭包与 C 和 Objective-C 中的代码块(blocks)以及其他一些编程语言中的匿名函数比较相似。
 // 闭包可以捕获和存储其所在上下文中任意常量和变量的引用。
 
-// 闭包表达式(Closure Expressions)
+// 1 闭包表达式(Closure Expressions)
 // sorted 方法(The Sorted Method)
 // 原数组不会被 sorted(by:) 方法修改。
 let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella", "Andy", "Amni"]
@@ -30,7 +30,7 @@ var reversedNames5 = names.sorted(by: {$0>$1})
 // 运算符方法(Operator Methods)
 var reversedNames6 = names.sorted(by: >)
 
-// 尾随闭包(Trailing Closures)  将一个很长的闭包表达式作为最后一个参数传递给函数
+// 2 尾随闭包(Trailing Closures):将一个很长的闭包表达式作为最后一个参数传递给函数
 /**
 // 以下是不使用尾随闭包进行函数调用 
 func someFunctionThatTakesAClosure(closure: {
@@ -59,7 +59,7 @@ let strings = numbers.map {
     return output
 }
 
-// 值捕获(Capturing Values)
+// 3 值捕获(Capturing Values)
 // 闭包可以在其被定义的上下文中捕获常量或变量。即使定义这些常量和变量的原作用域已经不存在，闭包仍然可以在闭包函数体内引用和修改这些值。
 // 嵌套函数 是 捕获值的闭包的最简单形式
 func makeIncrementer(forIncrement amount: Int) -> () -> Int {
@@ -77,12 +77,12 @@ funcby50()
 funcby50()
 funcby10()
 
-// 闭包是引用类型(Closures Are Reference Types)
+// 4 闭包是引用类型(Closures Are Reference Types)
 // 函数和闭包都是引用类型
 // 无论将函数或闭包赋值给一个常量还是变量，实际上都是将常量或变量的值设置为对应函数或闭包的引用。
 let funcbyTen = funcby10
 funcbyTen()
-
+// ??
 // 逃逸闭包(Escaping Closures)
 
 // 自动闭包(Autoclosures)

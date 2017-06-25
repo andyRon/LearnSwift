@@ -2,7 +2,7 @@
  Control Flow
  */
 
-// for in
+// 1 for in
 // for in 可用来遍历 Array Dictionary Set Range String
 for index in 1...5 {
 }
@@ -19,7 +19,7 @@ for country in countrys {
 for s in "andyron".characters {
 }
 
-// while
+// 2 while
 var i = 1
 while i > 10 {
     // ...
@@ -31,7 +31,7 @@ repeat {
     i += 1
 } while  i > 10
 
-// if 
+// 3 if
 var temperatureInFahrenheit = 30
 if temperatureInFahrenheit <= 32 {
     print("It's very cold. Consider wearing a scarf.")
@@ -41,7 +41,7 @@ if temperatureInFahrenheit <= 32 {
     print("It's not that cold. Wear a t-shirt.")
 }
 
-// switch
+// 4 switch
 // 不存在隐式的贯穿(No Implicit Fallthrough)，不需要break
 let anotherCharacter: Character = "a"
 switch anotherCharacter {
@@ -112,8 +112,7 @@ default:
     print("Not on an axis")
 }
 
-// 控制转移语句(Control Transfer Statements)
-// continue break fallthrough return throw
+// 控制转移语句(Control Transfer Statements):   continue break fallthrough return throw
 // 贯穿(Fallthrough) 执行完一个case后，继续向下执行
 let integerToDescribe = 5
 var description = "The number \(integerToDescribe) is"

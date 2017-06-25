@@ -5,7 +5,7 @@
  类、结构体、枚举都可以定义**实例方法**，也都可以定义**类型方法**
  在OC中，类是唯一能定义方法的类型
  */
-// 实例方法 (Instance Methods)
+// 1 实例方法 (Instance Methods)
 // 实例方法只能被它所属的类的某个特定实例调用
 class Counter {
     var count = 0
@@ -68,7 +68,7 @@ enum TriStateSwitch {
     }
 }
 
-// 类型方法 (Type Methods)
+// 2 类型方法 (Type Methods)
 // `static`  `class`
 // 在类型方法的方法体(body)中，`self`指向这个类型本身，而不是类型的某个实例。
 struct LevelTracker {

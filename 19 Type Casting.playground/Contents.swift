@@ -3,7 +3,7 @@
  `is`  `as`
  */
 
-// 定义一个类层次作为例子
+// 1 定义一个类层次作为例子
 class MediaItem {
     var name: String
     init(name: String) {
@@ -36,7 +36,7 @@ for v in library {          // v 在此处是 MediaItem 类型
     print(v.name)
 }
 
-// 检查类型(Checking Type)  `is`
+// 2 检查类型(Checking Type)  `is`
 var movieCount = 0
 var songCount = 0
 for item in library {
@@ -47,7 +47,7 @@ for item in library {
     }
 }
 
-// 向下转型(Downcasting)    `as?`   `as!`
+// 3 向下转型(Downcasting)    `as?`   `as!`
 // 条件形式(conditional form) as? 返回一个你试图向下转成的类型的可选值(optional value)
 // 强制形式 as! 把试图向下转型和强制解包(force-unwraps)转换结果结合为一个操作。
 for item in library {
@@ -58,6 +58,6 @@ for item in library {
     }
 }
 
-// Any和AnyObject的类型转换
+// 4 Any和AnyObject的类型转换
 // AnyObject可以表示任何类类型的实例
 // Any可以表示任何类型，包括函数类型

@@ -4,11 +4,11 @@
 // 构造过程是使用类、结构体或枚举类型的实例之前的准备过程
 // 通过定义构造器( Initializers )来实现构造过程
 
-// 存储属性的初始赋值
+// 1 存储属性的初始赋值
 // 类和结构体在创建实例时，必须为所有存储型属性设置合适的初始值。
 // 当你为存储型属性设置默认值或者在构造器中为其赋值时，它们的值是被直接设置的，不会触发任何属性观察者。
 
-// 自定义构造过程
+// 2 自定义构造过程
 struct Celsius {
     var temperatureInCelsius: Double
     init(fromFahrenheit fahrenheit: Double) {
@@ -73,7 +73,7 @@ class SurveyQuestion2 {
     }
 }
 
-// 默认构造器
+// 3 默认构造器
 // 如果结构体或类的所有属性都有默认值，相当于有一个自定义的构造器
 class ShoppingListItem {
     var name: String?
@@ -87,7 +87,7 @@ struct Size {
 }
 let twoByTwo = Size(width: 2.0, height: 2.0)
 
-// 值类型(结构体和枚举类型)的构造器代理(调用其它构造器来完成实例的部分构造过程)
+// 4 值类型(结构体和枚举类型)的构造器代理(调用其它构造器来完成实例的部分构造过程)
 struct Point {
     var x = 0.0, y = 0.0
 }
@@ -106,7 +106,7 @@ struct Rect {
     }
 }
 
-// 类的继承和构造过程
+// 5 类的继承和构造过程
 /* 指定构造器(designated initializers)：主要，至少有一个。一个指定构造器将初始化类中提供的所有属性，并根据父类链往上调用父类的构造器来实现父类的初始化。
  init(parameters) {
     statements
@@ -194,10 +194,10 @@ for item in breakfastList {
     print(item.description)
 }
 
-// 可失败构造器
+// 6 可失败构造器
 
-// 必要构造器
+// 7 必要构造器
 // 在类的构造器前添加`required`修饰符表明所有该类的子类都必须实现该构造器
 // 在重写父类中必要的指定构造器时，不需要添加 override 修饰符
 
-// 通过闭包或函数设置属性的默认值
+// 8 通过闭包或函数设置属性的默认值

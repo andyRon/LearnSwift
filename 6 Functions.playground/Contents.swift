@@ -2,7 +2,7 @@
  Functions
  */
 
-// 函数的定义与调用 (Defining and Calling Functions)
+// 1 函数的定义与调用 (Defining and Calling Functions)
 // 参数，parameters
 // 返回类型，return type
 // 实参，arguments
@@ -10,7 +10,7 @@ func greet(person: String) -> String {
     return "Hello, " + person + "!"
 }
 
-// 函数参数与返回值 (Function Parameters and Return Values)
+// 2 函数参数与返回值 (Function Parameters and Return Values)
 // 无参数函数 (Functions Without Parameters)
 func sayHelloWorld() -> String {
     return "hello, world"
@@ -61,7 +61,7 @@ if let bounds = minMax2(array: [8, -6, 2, 109, 3, 71]) {
     print("min is \(bounds.min) and max is \(bounds.max)")
 }
 
-// 函数参数标签和参数名称 (Function Argument Labels and Parameter Names)
+// 3 函数参数标签和参数名称 (Function Argument Labels and Parameter Names)
 // 每个函数参数都有一个参数标签( argument label )以及一个参数名称( parameter name )。参数标签在调用函 数的时候使用;调用的时候需要将函数的参数标签写在对应的参数前面。参数名称在函数的实现中使用。
 func someFunction(argumentLabel parameterName: Int) {
 }
@@ -91,7 +91,7 @@ var anotherInt = 107
 swapTwoInts(&someInt, &anotherInt)
 print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 
-// 函数类型 (Function Types)
+// 4 函数类型 (Function Types)
 func addTwoInts(_ a: Int, _ b: Int) -> Int {            // `(Int, Int) -> Int`
     return a + b
 }
@@ -117,7 +117,7 @@ func chooseStepFunction(backward: Bool) -> (Int) -> Int {
     return backward ? stepBackward : stepForward
 }
 
-// 嵌套函数 (Nested Functions)
+// 5 嵌套函数 (Nested Functions)
 func chooseStepFunction2(backward: Bool) -> (Int) -> Int {
     func stepForward(input: Int) -> Int { return input + 1 }
     func stepBackward(input: Int) -> Int { return input - 1 }

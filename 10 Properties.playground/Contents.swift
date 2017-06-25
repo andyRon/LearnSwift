@@ -2,7 +2,7 @@
  Properties 
  */
 
-// 存储属性 Stored Properties （只能用于类和结构体）
+// 1 存储属性 Stored Properties （只能用于类和结构体）
 // 描述整数的范围，且这个范围值在被创建后不能被修改.
 struct FixedLengthRange {
     var firstValue: Int
@@ -34,7 +34,7 @@ manager.data.append("Some data")
 manager.data.append("Some more data")
 manager.importer.fileName
 
-// 计算属性
+// 2 计算属性(Computed Properties)
 // 不直接存储值，而是提供一个getter和一个可选的setter,来间接获取和设置其他属性或变量的值。
 struct Point {
     var x = 0.0, y = 0.0
@@ -71,7 +71,7 @@ struct Cuboid {
     }
 }
 
-// 属性观察器
+// 3 属性观察器(Property Observers)
 // 设置属性时（就算值不变），就会调用`willSet`， `didSet`
 class StepCounter {
     var totalSteps: Int = 0 {
@@ -95,10 +95,10 @@ let stepCounter = StepCounter()
 stepCounter.totalSteps = 1
 stepCounter.totalSteps = 20
 
-// 全局变量和局部变量
+// 4 全局变量和局部变量(Global and Local Variables)
 // 计算属性和属性观察器所描述的功能也可以用于全局变量和局部变量
 
-// 类型属性：类型属性。用于某个类型所有实例共享的数据
+// 5 类型属性(Type Properties)：用于某个类型所有实例共享的数据。(类似于其他语言的静态属性)
 // 存储型类型属性是延迟初始化的
 struct SomeStructure {
     static var storedTypeProperty = "Some value."
