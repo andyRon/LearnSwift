@@ -24,7 +24,7 @@ if let roomCount = john.residence?.numberOfRooms {
     print("Unable to retrieve the number of rooms.")
 }
 
-// 为可选链式调用定义模型类
+// 2 为可选链式调用定义模型类
 class Person2 {
     var residence: Residence2?
 }
@@ -71,10 +71,12 @@ func createAddress() -> Address {
     someAddress.street = "Acacia Road"
     return someAddress
 }
-let andy = Person2()
-andy.residence?.address = createAddress()       // 可选链式调用失败时，等号右侧的代码不会被执行。
 
-// 通过可选链式调用调用方法
+// 3 通过可选链式调用访问属性
+let andy = Person2()
+andy.residence?.address = createAddress()       // andy.residence结果为nil，可选链式调用失败时，等号右侧的代码不会被执行。
+
+// 4 通过可选链式调用调用方法
 if let firstRoomName = andy.residence?[0].name {
     print("The first room name is \(firstRoomName).")
 } else {
@@ -89,13 +91,14 @@ if let firstRoomName = andy.residence?[0].name {
 } else {
     print("Unable to retrieve the first room name.")
 }
-// 访问可选类型的下标
+
+// 5 访问可选类型的下标
 var testScores = ["Dave": [86, 82, 84], "Bev": [79, 94, 81]]
 testScores["Dave"]?[0] = 91
 testScores["Bev"]?[0] += 1
 testScores["Brian"]?[0] = 72
 
-// 连接多层可选链式调用
+// 6 连接多层可选链式调用
 if let andyStreet = andy.residence?.address?.street {
     print("John's street name is \(andyStreet).")
 } else {
@@ -111,7 +114,7 @@ if let andyStreet = andy.residence?.address?.street {
     print("Unable to retrieve the address.")
 }
 
-// 在方法的可选返回值上进行可选链式调用
+// 7 在方法的可选返回值上进行可选链式调用
 if let buildingIdentifier = andy.residence?.address?.buildingIdentifier() {
     print("John's building identifier is \(buildingIdentifier).")
 }
