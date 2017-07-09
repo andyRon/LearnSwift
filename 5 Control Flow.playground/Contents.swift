@@ -125,9 +125,8 @@ default:
 }
 // 带标签的语句 ??
 
-// guard 与 if 功能类似
-// 1 guard会简洁，减少嵌套
-// 2 解包时，guard的作用不限于本身
+// guard 与 if
+// 功能类似。区别：1 guard减少嵌套，会简洁 2 解包时，guard的结果作用域不限于本身。
 // greet(person: ["name": "Jane", "location": "Cupertino"])
 func greet(person: [String: String]) {
     if let name = person["name"] {
