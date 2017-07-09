@@ -125,7 +125,38 @@ default:
 }
 // 带标签的语句 ??
 
-// 提前退出 ??
+// guard 与 if 功能类似
+// 1 guard会简洁，减少嵌套
+// 2 解包时，guard的作用不限于本身
+// greet(person: ["name": "Jane", "location": "Cupertino"])
+func greet(person: [String: String]) {
+    if let name = person["name"] {
+        print("Hello \(name)!")
+        
+        if let location = person["location"] {
+            print("I hope the weather is nice in \(location).")
+        } else {
+            print("I hope the weather is nice near you.")
+        }
+    } else {
+        print("Hello stranger!")
+    }
+//    print(name)       //name的作用于只限于if中
+}
+func greet2(person: [String: String]) {
+    guard let name = person["name"] else {
+        print("Hello stranger!")
+        return
+    }
+    print("Hello \(name)!")
+    
+    guard let location = person["location"] else {
+        print("I hope the weather is nice near you.")
+        return
+    }
+    print("I hope the weather is nice in \(location).")
+}
+
 
 // 检测 API 可用性
 if #available(iOS 10, macOS 10.12, *) {
