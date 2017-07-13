@@ -112,7 +112,7 @@ default:
     print("Not on an axis")
 }
 
-// 控制转移语句(Control Transfer Statements):   continue break fallthrough return throw
+// 5 控制转移语句(Control Transfer Statements):   continue break fallthrough return throw
 // 贯穿(Fallthrough) 执行完一个case后，继续向下执行
 let integerToDescribe = 5
 var description = "The number \(integerToDescribe) is"
@@ -123,9 +123,8 @@ case 2, 3, 5, 7, 11, 13, 17, 19:
 default:
     description += " an integer."
 }
-// 带标签的语句 ??
 
-// guard 与 if
+// 6 guard 与 if
 // 功能类似。区别：1 guard减少嵌套，会简洁 2 解包时，guard的结果作用域不限于本身。
 // greet(person: ["name": "Jane", "location": "Cupertino"])
 func greet(person: [String: String]) {
@@ -157,9 +156,11 @@ func greet2(person: [String: String]) {
 }
 
 
-// 检测 API 可用性
+// 7 检测 API 可用性
 if #available(iOS 10, macOS 10.12, *) {
     // 在 iOS 使用 iOS 10 的 API, 在 macOS 使用 macOS 10.12 的 API
 } else {
     // 使用先前版本的 iOS 和 macOS 的 API
 }
+
+// 带标签的语句 ??
