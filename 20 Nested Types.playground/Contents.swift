@@ -1,7 +1,7 @@
 /**
  Nested Types 嵌套类型
  */
-
+// 1 🌰
 struct BlackjackCard {  // 二十一点
     
     // nested Suit enumeration
@@ -41,6 +41,6 @@ struct BlackjackCard {  // 二十一点
 let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)
 print("theAceOfSpades: \(theAceOfSpades.description)")
 
-// 引用嵌套类型
+// 2 引用嵌套类型
 let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
                 
