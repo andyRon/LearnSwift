@@ -194,10 +194,91 @@ for item in breakfastList {
     print(item.description)
 }
 
-// 6 可失败构造器
+// 6 可失败构造器 init?
+struct Animal {
+    let species: String
+    init?(species: String) {
+        if species.isEmpty { return nil }
+        self.species = species
+    }
+}
+let someCreature = Animal(species: "Giraffe") // someCreature的类型是可选类型Animal?，而不是Animal
+if let giraffe = someCreature {
+    print("An animal was initialized with a species of \(giraffe.species)")
+}
+enum TemperatureUnit {
+    case Kelvin, Celsius, Fahrenheit
+    init?(symbol: Character) {
+        switch symbol {
+        case "K":
+            self = .Kelvin
+        case "C":
+            self = .Celsius
+        case "F":
+            self = .Fahrenheit
+        default:
+            return nil
+        }
+    }
+}
+// 带原始值的枚举类型的可失败构造器
+//  带原始值的枚举类型会自带一个可失败构造器 init?(rawValue:)
+enum TemperatureUnit2: Character {
+    case Kelvin = "K", Celsius = "C", Fahrenheit = "F"
+}
+let fahrenheitUnit = TemperatureUnit2(rawValue: "X")
+// 构造失败的传递
+//  类，结构体，枚举的可失败构造器可以横向代理到类型中的其他可失败构造器。
+//  传递过程中，一个可失败构造器触发构造失败，整个构造过程将立即终止。
+class Product {
+    let name: String
+    init?(name: String) {
+        if name.isEmpty { return nil }
+        self.name = name
+    }
+}
+class CartItem: Product {
+    let quantity: Int
+    init?(name: String, quantity: Int) {
+        if quantity < 1 { return nil }
+        self.quantity = quantity
+        super.init(name: name)
+    }
+}
+if let zeroShirts = CartItem(name: "shirt", quantity: 0) {
+    print("Item: \(zeroShirts.name), quantity: \(zeroShirts.quantity)")
+} else {
+    print("Unable to initialize zero shirts")
+}
+if let oneUnnamed = CartItem(name: "", quantity: 1) {
+    print("Item: \(oneUnnamed.name), quantity: \(oneUnnamed.quantity)")
+} else {
+    print("Unable to initialize one unnamed product")
+}
+// 可以用非可失败构造器重写可失败构造器，但不可反过来。
+// init!类型的可失败构造器构造失败，会触发断言。
 
 // 7 必要构造器
 // 在类的构造器前添加`required`修饰符表明所有该类的子类都必须实现该构造器
 // 在重写父类中必要的指定构造器时，不需要添加 override 修饰符
 
 // 8 通过闭包或函数设置属性的默认值
+//  在闭包执行时，实例的其它部分都还没有初始化。也就说不能在闭包里访问其它属性，即使这些属性有默认值。同样，也不能使用隐式的self属性，或者调用任何实例方法。
+struct Checkerboard { // 西洋跳棋棋盘，boardColors是棋盘颜色数组(8*8)
+    let boardColors: [Bool] = {
+        var temporaryBoard = [Bool]()
+        var isBlack = false
+        for i in 1...8 {
+            for j in 1...8 {
+                temporaryBoard.append(isBlack)
+                isBlack = !isBlack
+            }
+            isBlack = !isBlack
+        }
+        return temporaryBoard
+    }()
+    func squareIsBlackAtRow(row: Int, column: Int) -> Bool {
+        return boardColors[(row * 8) + column]
+    }
+}
+
