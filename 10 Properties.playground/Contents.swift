@@ -34,7 +34,7 @@ manager.data.append("Some data")
 manager.data.append("Some more data")
 manager.importer.fileName
 
-// 2 计算属性(Computed Properties)
+// 2 计算属性Computed Properties (可用于类，结构体和枚举)
 // 不直接存储值，而是提供一个getter和一个可选的setter,来间接获取和设置其他属性或变量的值。
 struct Point {
     var x = 0.0, y = 0.0
@@ -99,7 +99,8 @@ stepCounter.totalSteps = 20
 // 计算属性和属性观察器所描述的功能也可以用于全局变量和局部变量
 
 // 5 类型属性(Type Properties)：用于某个类型所有实例共享的数据。(类似于其他语言的静态属性)
-// 存储型类型属性是延迟初始化的
+// 存储型类型属性是延迟初始化的。
+// 标识符static可用在类、结构体、枚举、协议，class只要在类中。
 struct SomeStructure {
     static var storedTypeProperty = "Some value."
     static var computedTypeProperty: Int {
@@ -122,6 +123,9 @@ class SomeClass {
     }
 }
 SomeStructure.storedTypeProperty
+protocol MyProtocol {
+    static func foo() -> String
+}
 // 声道模型
 struct AudioChannel {
     static let thresholdLevel = 10                          // 音量的最大 上限阈值
