@@ -1,6 +1,6 @@
 /**
  Extensions
- 为一个已有的类、结构体、枚举类型或者协议类型添加新功能
+ 为一个已有的类、结构体、枚举类型或者协议类型添加新功能。
  包括在没有权限获取原始源代码的情况下扩展类型的能力(即**逆向建模**)
  */
 // 扩展可以为一个类型添加新的功能，但是不能重写已有的功能。
@@ -10,13 +10,14 @@
  extension SomeType {
     // 为 SomeType 添加的新功能写到这里
  }
+ // 扩展一个已有类型，使其实现一些协议。
  extension SomeType: SomeProtocol, AnotherProctocol { 
     // 协议实现写到这里
  }
  */
 // 如果你通过扩展为一个已有类型添加新功能，那么新功能对该类型的所有已有实例都是可用的，即使它们是在这个扩展定义之前创建的。
 
-// 计算型属性(Computed Properties)
+// 2 计算型属性(Computed Properties)
 extension Double {
     var km: Double { return self * 1_000.0 }
     var m : Double { return self }
@@ -25,7 +26,7 @@ extension Double {
     var ft: Double { return self / 3.28084 }
 }
 let oneInch = 25.4.mm
-// 2 扩展可以添加新的计算型属性，但是不可以添加存储型属性，也不可以为已有属性添加属性观察器。
+// 扩展可以添加新的计算型属性，但是不可以添加存储型属性，也不可以为已有属性添加属性观察器。
 
 // 3 构造器(Initializers)
 struct Size {
