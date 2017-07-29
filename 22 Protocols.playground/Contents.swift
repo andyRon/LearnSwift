@@ -1,11 +1,12 @@
 /**
  Protocols
- 协议定义了一个蓝图，规定了用来实现某一特定任务或者功能的方法、属性，以及其他需要的东西。类、结构体或枚举都可以采纳协议，并为协议定义的这些要求提供具体实现。
+ 协议定义了一个蓝图，规定了用来实现某一特定任务或者功能的方法、属性，以及其他需要的东西。
+ 类、结构体或枚举都可以采纳协议，并为协议定义的这些要求提供具体实现。 
+ xx conform xxx protocol (xx“符合”xxx协议)
  */
 
-// 属性要求
+// 1 属性要求
 // 可以要求提供特定名称和类型的实例属性或类型属性
-// 不指定属性是存储型属性还是计算型属性
 protocol SomeProtocol {
     var mustBeSettable: Int { get set }
     var doesNotNeedToBeSettable: Int { get }
@@ -32,7 +33,7 @@ class Starship: FullyNamed {
     }
 }
 
-// 方法要求
+// 2 方法要求
 // 不需要大括号和方法体; 不支持为协议中的方法的参数提供默认值
 protocol SomeProtocol2 {
     static func someTypeMethod()
@@ -53,7 +54,8 @@ class LinearCongruentialGenerator: RandomNumberGenerator {
     }
 }
 
-// Mutating 方法要求
+// 3 Mutating 方法要求
+// 实现协议中的 mutating 方法时，若是类类型，则不用写 mutating 关键字。而对于结构体和枚举，则必须写 mutating 关键字。
 protocol Togglable {
     mutating func toggle()
 }
@@ -71,10 +73,17 @@ enum OnOffSwitch: Togglable {
 var lightSwitch = OnOffSwitch.Off
 lightSwitch.toggle()
 
-// 构造器要求
-//??
+// 4 构造器要求
+protocol SomeProtocol3 {
+    init(someParameter: Int)
+}
+class SomeClass: SomeProtocol3 {
+    required init(someParameter: Int) {  // 必须要加required
+        
+    }
+}
 
-// 协议作为类型
+// 5 协议作为类型
 //  1 作为函数、方法或构造器中的参数类型或返回值类型
 //  2 作为常量、变量或属性的类型
 //  3 作为数组、字典或其他容器中的元素类型
@@ -93,13 +102,14 @@ var d6 = Dice(sides: 6, generator: LinearCongruentialGenerator())
 for _ in 1...5 {
     print("Random dice roll is \(d6.roll())")
 }
-
 let a = 8.625
 a.truncatingRemainder(dividingBy: 0.75)
 let b = 5.5
 b.truncatingRemainder(dividingBy: 3)
 
-// 委托(代理)模式
+// 6 委托(代理)模式
+// 委托是一种设计模式，它允许类或结构体将一些需要它们负责的功能委托给其他类型的实例。
+// 委托模式的实现: 定义协议来封装那些需要被委托的功能，这样就能确保采纳协议的类型能提供这些功能。
 protocol DiceGame {
     var dice: Dice { get }
     func play()
@@ -161,7 +171,7 @@ let game = SnakesAndLadders()
 game.delegate = tracker
 game.play()
 
-// 通过扩展添加协议一致性
+// 7 通过扩展添加协议一致性
 // 通过扩展令已有类型采纳并符合协议时，该类型的所有实例也会随之获得协议中定义的各项功能。
 protocol TextRepresentable {
     var textualDescription: String { get }
@@ -174,7 +184,7 @@ extension Dice: TextRepresentable {
 let d12 = Dice(sides: 12, generator: LinearCongruentialGenerator())
 print(d12.textualDescription)
 
-// 通过扩展采纳协议
+// 8 通过扩展采纳协议
 // 当一个类型已经符合了某个协议中的所有要求，却还没有声明采纳该协议时，可以通过空扩展体的扩展来采纳该协议
 struct Hamster {
     var name: String
@@ -186,25 +196,25 @@ extension Hamster: TextRepresentable {}
 let simonTheHamster = Hamster(name: "Simon")
 let somethingTextRepresentable: TextRepresentable = simonTheHamster
 
-// 协议类型的集合
+// 9 协议类型的集合
 let things: [TextRepresentable] = [ d12, simonTheHamster]
     for thing in things {
         print(thing.textualDescription)
 }
 
-// 协议的继承
+// 10 协议的继承
 protocol PrettyTextRepresentable: TextRepresentable {
     var prettyTextualDescription: String { get }
 }
 
-// 类类型专属协议
+// 11 类类型专属协议
 protocol SomeClassOnlyProtocol: class { // 只能类可以实现这个协议
     
 }
 //struct SomeStruct: SomeClassOnlyProtocol {
 //}
 
-// 协议合成
+// 12 协议合成
 protocol Named {
     var name: String { get }
 }
@@ -222,7 +232,13 @@ func wishHappyBirthday(to celebrator: Named & Aged) {
 let birthdayPerson = Person2(name: "Malcolm", age: 21)
 wishHappyBirthday(to: birthdayPerson)
 
-// 检查协议一致性
+// 13 检查协议一致性
+/**
+ 检查和转换到某个协议类型在语法上和类型的检查和转换完全相同:
+ • is 用来检查实例是否符合某个协议，若符合则返回 true ，否则返回 false 。
+ • as? 返回一个可选值，当实例符合某个协议时，返回类型为协议类型的可选值，否则返回 nil 。 
+ • as! 将实例强制向下转换到某个协议类型，如果强转失败，会引发运行时错误。
+ */
 protocol HasArea {
     var area: Double { get }
 }
@@ -253,7 +269,62 @@ for object in objects {
     }
 }
 
-// 可选的协议要求
+// 14 可选的协议要求
+import Foundation
+@objc protocol CounterDataSource {
+    @objc optional func increment(forCount count: Int) -> Int
+    @objc optional var fixedIncrement: Int { get }
+}
+class Counter {
+    var count = 0
+    var dataSource: CounterDataSource?
+    func increment() {
+        if let amount = dataSource?.increment?(forCount: count) {
+            count = count + amount
+        } else if let amount = dataSource?.fixedIncrement {
+            count = count +  amount
+        }
+    }
+}
+class ThreeSource: NSObject, CounterDataSource {
+    let fixedIncrement = 3
+}
+var counter = Counter()
+counter.dataSource = ThreeSource()
+for _ in 1...4 {
+    counter.increment()
+    print(counter.count)
+}
 
-// 协议扩展
-// ??
+// 15 协议扩展
+// 协议可以通过扩展来为采纳协议的类型提供属性、方法以及下标的实现。
+extension RandomNumberGenerator {
+    func randomBool() -> Bool {
+        return random() > 0.5
+    }
+}
+let generator = LinearCongruentialGenerator()
+print("Here's a random number: \(generator.random())")
+print("And here's a random Boolean: \(generator.randomBool())")
+// 提供默认实现。
+// 如果符合PrettyTextRepresentable协议某个类、结构体或枚举，有属性prettyTextualDescription的实现，那属性prettyTextualDescription的结果就是这个实现，否则就会使用扩展当中的实现。
+extension PrettyTextRepresentable  {
+    var prettyTextualDescription: String {
+        return textualDescription
+    }
+}
+// 为协议扩展添加限制条件
+extension Collection where Iterator.Element: TextRepresentable {
+    var textualDescription: String {
+        let itemsAsText = self.map { $0.textualDescription }
+        return "[" + itemsAsText.joined(separator: ", ") + "]"
+    }
+}
+let murrayTheHamster = Hamster(name: "Murray")
+let morganTheHamster = Hamster(name: "Morgan")
+let mauriceTheHamster = Hamster(name: "Maurice")
+let hamsters = [murrayTheHamster, morganTheHamster, mauriceTheHamster]
+print(hamsters.textualDescription)
+
+
+
