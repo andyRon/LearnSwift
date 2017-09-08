@@ -8,7 +8,7 @@
 - 官方文档的[中文版](https://github.com/numbbbbb/the-swift-programming-language-in-chinese)
 好多小伙伴一起合作翻译，从swift刚才来就很快翻译，以后不断更新，发起者在开始发起翻译时还是个在校学生，很厉害，真的非常感谢。
 - [<Swift Apprentice>](https://store.raywenderlich.com/products/swift-apprentice)
-这是raywenderlich.com网站出的书，不过是收费的。😑
+这是raywenderlich.com网站出的书，不过是收费的。😑 有需要的小伙伴可私信我😎
 
 ### 为什么是`playground`的形式
 
