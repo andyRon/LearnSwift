@@ -1,5 +1,5 @@
 /**
- The Basics
+ The Basics  基础
  */
 
 // 1 常量和变量(Constants and Variables)

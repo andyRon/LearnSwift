@@ -1,11 +1,11 @@
 /**
- Extensions
+ Extensions 扩展
  为一个已有的类、结构体、枚举类型或者协议类型添加新功能。
  包括在没有权限获取原始源代码的情况下扩展类型的能力(即**逆向建模**)
  */
 // 扩展可以为一个类型添加新的功能，但是不能重写已有的功能。
 
-// 1 扩展语法(Extension Syntax)
+// 1 扩展的语法(Extension Syntax)
 /**
  extension SomeType {
     // 为 SomeType 添加的新功能写到这里

@@ -49,7 +49,7 @@ let sparklingHeart = "\u{1F496}"    // Unicode 标量 U+1F496
 // 可扩展的字形群集(Extended Grapheme Clusters)
 
 // 9 计算字符数量 (Counting Characters)
-welcome0.characters.count
+welcome0.count
 
 // 10 访问和修改字符串 (Accessing and Modifying a String)
 let greeting = "Guten Tag!"
@@ -58,7 +58,7 @@ greeting[greeting.index(before: greeting.endIndex)]                         // !
 greeting[greeting.index(after: greeting.startIndex)]                        // u
 let index = greeting.index(greeting.startIndex, offsetBy: 6)                // 从某个索引开始向后offsetBy的索引
 greeting[index]
-for index in greeting.characters.indices {
+for index in greeting.indices {
     print("\(greeting[index]) ", terminator: "")
 }
 // Inserting and Removing
