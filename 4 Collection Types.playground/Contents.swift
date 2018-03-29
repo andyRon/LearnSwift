@@ -24,8 +24,10 @@ sixDoubles.removeAll()
 // 数组遍历
 var shoppingList = ["Eggs", "Milk"]
 for item in shoppingList {
+    print("\(item)")
 }
 for (index, value) in shoppingList.enumerated() {                   // enumerated()把数组的索引和值生成sequence用于遍历
+    print("\(index): \(value)")
 }
 // 数组特殊操作 
 //var a = (1...10)
@@ -37,8 +39,7 @@ let words = ["Swift","iOS","cocoa","OSX","tvOS"]
 let tweet = "This is an example tweet larking about Swift"
 //words.contains(tweet.containsString)
 //words.filter({tweet.containsString($0)})
-tweet.characters
-    .split(separator: " ")
+tweet.split(separator: " ")
     .lazy
     .map(String.init)
     .contains(where: Set(words).contains)
@@ -75,6 +76,7 @@ favoriteGenres.intersection(favoriteGenres2)                        // 交集
 favoriteGenres.symmetricDifference(favoriteGenres2)                 // 对称差集
 favoriteGenres.union(favoriteGenres2)                               // 并集
 favoriteGenres.subtracting(favoriteGenres2)                         // 差集
+favoriteGenres2.subtracting(favoriteGenres)                         // 差集
 favoriteGenres.subtract(favoriteGenres2)                            // 区别于subtracting，没有返回值直接修改favoriteGenres
 var fg3: Set = ["rap"]
 favoriteGenres == favoriteGenres2
@@ -95,11 +97,13 @@ airports.isEmpty
 airports["hongqiao"] = "shanghai"
 airports.updateValue("nanjing", forKey: "jichang")
 airports["jichang"] = nil; //airports.remove(at: "jichang")
-airports.keys
+//airports.keys
 airports.values
 // 遍历
 for (code, name) in airports {
+    print("\(code): \(name)")
 }
 for code in airports.keys {
+    print("\(code)")
 }
 

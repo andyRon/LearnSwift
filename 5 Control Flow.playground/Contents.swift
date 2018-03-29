@@ -16,7 +16,7 @@ for (animalName, legCount) in numberOfLegs {
 let countrys:Set = ["China", "USA", "Japan"]
 for country in countrys {
 }
-for s in "andyron".characters {
+for s in "andyron" {
 }
 
 // 2 while

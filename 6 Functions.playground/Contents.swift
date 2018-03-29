@@ -62,7 +62,7 @@ if let bounds = minMax2(array: [8, -6, 2, 109, 3, 71]) {
 }
 
 // 3 函数参数标签和参数名称 (Function Argument Labels and Parameter Names)
-// 每个函数参数都有一个参数标签( argument label )以及一个参数名称( parameter name )。参数标签在调用函 数的时候使用;调用的时候需要将函数的参数标签写在对应的参数前面。参数名称在函数的实现中使用。
+// 每个函数参数都有一个参数标签( argument label )以及一个参数名称( parameter name )。参数标签在调用函数的时候使用;调用的时候需要将函数的参数标签写在对应的参数前面。参数名称在函数的实现中使用。
 func someFunction(argumentLabel parameterName: Int) {
 }
 // 忽略参数标签(Omitting Argument Labels)

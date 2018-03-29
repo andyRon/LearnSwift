@@ -22,7 +22,7 @@ variableString += " and carriage"
 // 在实际编译时，Swift 编译器会优化字符串的使用，使实际的复制只发生在绝对必要的情况下，这意味着您将字符串作为值类型的同时可以获得极高的性能。
 
 // 5 使用字符(Working with Characters)
-for character in "Dog!?🐶".characters {
+for character in "Dog!?🐶" {
     print(character)
 }
 let exclamationMark: Character = "!"                                        // `Character`是字符（注意也是双引号，不是单引号）
@@ -64,7 +64,7 @@ for index in greeting.indices {
 // Inserting and Removing
 var welcome = "hello"
 welcome.insert("!", at: welcome.endIndex)                                                       // welcome now equals "hello!"
-welcome.insert(contentsOf:" there".characters, at: welcome.index(before: welcome.endIndex))     // welcome now equals "hello there!
+welcome.insert(contentsOf:" there", at: welcome.index(before: welcome.endIndex))                // welcome now equals "hello there!
 welcome.remove(at: welcome.index(before: welcome.endIndex))                                     // welcome now equals "hello there"
 let range = welcome.index(welcome.endIndex, offsetBy: -6) ..< welcome.endIndex
 welcome.removeSubrange(range)                                                                   // welcome now equals "hello"
@@ -74,9 +74,9 @@ welcome.removeSubrange(range)                                                   
 // 12 字符串的 Unicode 表示形式(Unicode Representations of Strings)
 
 // 13 String的常见方法和属性
-welcome.characters                  // `String`没有继承`Sequence`，不能直接遍历，用 `String.characters`
-welcome.characters.count
-for c in welcome.characters {
+//welcome.characters                  // `String`没有继承`Sequence`，不能直接遍历，用 `String.characters`
+welcome.count
+for c in welcome {
 }
 welcome.isEmpty
 welcome.startIndex

@@ -54,3 +54,13 @@ let err = arr.filter {
     $0 % 2 == 0
 }
 // brr = [2, 4]
+
+
+// map 和 flatMap 的区别
+let numbers2 = [1, 2, 3, 4]
+
+let mapped = numbers2.map { Array(repeating: $0, count: $0) }
+// [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4]]
+
+let flatMapped = numbers2.flatMap { Array(repeating: $0, count: $0) }
+// [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
