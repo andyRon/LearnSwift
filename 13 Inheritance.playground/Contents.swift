@@ -2,7 +2,7 @@
  Inheritance
  */
 // 一个类可以继承(inherit)另一个类的方法(methods)，属性(properties)和其它特性
-// 类可以调用和访问超类的方法，属性和下标(subscripts)，并且可以重写(override)这些方 法，属性和下标来优化或修改它们的行为。
+// 类可以调用和访问超类的方法，属性和下标(subscripts)，并且可以重写(override)这些方法，属性和下标来优化或修改它们的行为。
 // 可以为类中继承来的属性添加属性观察器(property observers)
 // 1 基类(base class)
 class Vehicle {

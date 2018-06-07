@@ -1,5 +1,16 @@
-//: Playground - noun: a place where people can play
+/**
+ 
+ 交换方法
+ 
+ */
+func swap<T>(_ array: inout [T],  _ p: Int, _ q: Int) {
+    assert(p >= 0 && p < array.count)
+    assert(q >= 0 && q < array.count)
+    
+    (array[p], array[q]) = (array[q], array[p])
+}
 
-import UIKit
+var arr = [23, 43, 56]
 
-var str = "Hello, playground"
+swap(&arr, 0, 1)
+

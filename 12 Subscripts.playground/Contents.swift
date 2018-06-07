@@ -1,7 +1,7 @@
 /**
  Subscripts
  */
-// 下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(c ollection)，列表(list)或序列(sequence)中元素的快捷方式。
+// 下标 (subscripts)可以定义在类(class)、结构体(structure)和枚举(enumeration)中，是访问集合(collection)，列表(list)或序列(sequence)中元素的快捷方式。
 // 一个类型可以定义多个下标，通过不同索引类型进行重载。
 // 1 下标语法
 struct TimesTable {
