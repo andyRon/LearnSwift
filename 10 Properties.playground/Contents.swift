@@ -100,7 +100,7 @@ stepCounter.totalSteps = 20
 
 // 5 类型属性(Type Properties)：用于某个类型所有实例共享的数据。(类似于其他语言的静态属性)
 // 存储型类型属性是延迟初始化的。
-// 标识符static可用在类、结构体、枚举、协议，class只要在类中。
+// 标识符static可用在类、结构体、枚举、协议，class只用在类中。
 struct SomeStructure {
     static var storedTypeProperty = "Some value."
     static var computedTypeProperty: Int {

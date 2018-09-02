@@ -14,3 +14,46 @@
 
 很多概念单用文字描述不大好理解，`playground`方便利用Xcode查看和调试。
 很多时候一些不常用的语法很容易忘记，通过`playground`很方便温习。
+
+
+
+### 目录
+- 1 The Basics  基础
+- 2 Basic Operators 基础运算符
+- 3 Strings and Characters	字符串和字符
+- 4 Collection Type	集合类型
+- 5 Control Flow 控制流
+- 6 Functions 函数
+- 7 Closure 闭包
+- 8 Enumerations 枚举
+- 9 Classes and Structures 类和结构体
+- 10 Properties 属性
+- 11 Methods 方法
+- 12 Subscripts 下标
+- 13 Inheritance 继承
+- 14 Initialization 构造器
+- 15 Deinitialization 类的解析器
+- 16 Automatic Reference Counting(ARC)	自动引用计数
+- 17 Optional Chaining  可选链式调用
+- 18 Error Handling 错误处理
+- 19 Type Casting 类型转换
+- 20 Nested Types 嵌套类型
+- 21 Extensions 扩展
+- 22 Protocols 协议
+- 23 Generics 泛型
+- 24 Access Control 访问控制
+- 25 Advanced Operators 高级运算符
+
+- Higher-order function  高阶函数
+- lazy	惰性求值
+- where 用法总结
+
+--------------
+待处理
+https://nshipster.com/swift-property-observers/
+
+
+
+元组高级
+
+https://swift.gg/2015/10/10/tuples-swift-advanced-usage-best-practices/

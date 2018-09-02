@@ -1,7 +1,5 @@
 /**
- 
  交换方法
- 
  */
 func swap<T>(_ array: inout [T],  _ p: Int, _ q: Int) {
     assert(p >= 0 && p < array.count)

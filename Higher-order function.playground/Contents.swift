@@ -1,5 +1,5 @@
 /*
- 高级函数（Higher-order function）
+ 高阶函数（Higher-order function）
  定义：如果一个函数：
      - 接受一个或多个函数当作参数
      - 把一个函数当作返回值
