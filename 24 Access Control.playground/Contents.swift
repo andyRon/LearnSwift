@@ -30,6 +30,25 @@
 //  元组：元组的访问级别将由元组中访问级别最严格的类型来决定。
 //  函数：函数的访问级别根据访问级别最严格的参数类型或返回类型的访问级别来决定。但是，如果这种访问级别不符合函数定义所在环境的默认访问级别，那么就需要明确地指定该函数的访问级别。
 //  枚举类型：枚举成员的访问级别和该枚举类型相同，你不能为枚举成员单独指定不同的访问级别。枚举定义中的任何原始值或关联值的类型的访问级别至少不能低于枚举类型的访问级别。
+public class SomePublicClass {                  // explicitly public class
+    public var somePublicProperty = 0            // explicitly public class member
+    var someInternalProperty = 0                 // implicitly internal class member
+    fileprivate func someFilePrivateMethod() {}  // explicitly file-private class member
+    private func somePrivateMethod() {}          // explicitly private class member
+}
+class SomeInternalClass {
+    // implicitly internal class
+    var someInternalProperty = 0                 // implicitly internal class member
+    fileprivate func someFilePrivateMethod() {}  // explicitly file-private class member
+    private func somePrivateMethod() {}          // explicitly private class member
+}
+fileprivate class SomeFilePrivateClass {        // explicitly file-private class
+    func someFilePrivateMethod() {}              // implicitly file-private class member
+    private func somePrivateMethod() {}          // explicitly private class member
+}
+private class SomePrivateClass {                // explicitly private class
+    func somePrivateMethod() {}                  // implicitly private class member
+}
 
 // 5 子类
 //  子类的访问级别不得高于父类的访问级别。
