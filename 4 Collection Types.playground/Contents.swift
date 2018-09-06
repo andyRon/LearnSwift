@@ -45,8 +45,8 @@ tweet.split(separator: " ")
     .contains(where: Set(words).contains)
 let name = "andyron"
 (1...4).forEach{print("Happy Birthday " + (($0 == 3) ? "dear \(name)":"to You"))}
-
-
+// 创建重复固定长度数组
+let arr3 = [Int?](repeating: nil, count: 20)
 
 // 2 集合(Sets)是无序无重复数据的集。
 // 存在集合的中数据类型必须是 可哈希化（必须提供一个方法来计算它的哈希值， 相等的对象哈希值必须相同，  a.hashValue == b.hashValue）
@@ -98,7 +98,7 @@ airports["hongqiao"] = "shanghai"
 airports.updateValue("nanjing", forKey: "jichang")
 airports["jichang"] = nil; //airports.remove(at: "jichang")
 //airports.keys
-airports.values
+//airports.values
 // 遍历
 for (code, name) in airports {
     print("\(code): \(name)")
