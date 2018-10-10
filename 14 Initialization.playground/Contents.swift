@@ -1,5 +1,5 @@
 /**
- Initialization
+ Initialization 构造过程
  */
 // 构造过程是使用类、结构体或枚举类型的实例之前的准备过程
 // 通过定义构造器( Initializers )来实现构造过程

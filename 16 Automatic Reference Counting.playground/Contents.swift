@@ -1,5 +1,5 @@
 /**
- Automatic Reference Counting(ARC)
+ Automatic Reference Counting(ARC) 自动引用计数
  
  引用计数仅仅应用于类的实例
  */

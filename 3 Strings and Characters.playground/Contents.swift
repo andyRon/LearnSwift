@@ -1,5 +1,5 @@
 /**
- Strings and Characters
+ Strings and Characters  字符串和字符
  */
 
 // 1 字符串字面量(String Literals)

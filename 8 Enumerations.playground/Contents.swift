@@ -1,5 +1,5 @@
 /**
- Enumerations
+ Enumerations 枚举
  */
 // 一等(first-class)类型
 // 每个枚举定义了一个全新的类型。以大写字母开头

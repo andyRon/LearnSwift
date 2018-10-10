@@ -1,5 +1,5 @@
 /**
- Collection Type 
+ Collection Type  集合类型
  */
 // Collection 分为 Arrays, Sets, Dictionaries(Collection，Sets有时都翻译成集合)
 

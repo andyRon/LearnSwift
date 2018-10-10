@@ -1,5 +1,5 @@
 /**
- (类的)Deinitialization
+ (类的)Deinitialization 析构过程
  */
 
 // 1 析构过程原理

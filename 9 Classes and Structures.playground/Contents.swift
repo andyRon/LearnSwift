@@ -1,5 +1,5 @@
 /**
- Classes and Structures
+ Classes and Structures 类和结构体
  */
 // 一个单一文件中定义一个类或者结构体，系统将会自动生成面向其它代码的外部接口。
 /**

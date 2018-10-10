@@ -1,5 +1,5 @@
 /**
- Properties 
+ Properties 属性
  */
 
 // 1 存储属性 Stored Properties （只能用于类和结构体）

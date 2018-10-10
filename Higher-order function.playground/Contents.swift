@@ -64,3 +64,4 @@ let mapped = numbers2.map { Array(repeating: $0, count: $0) }
 
 let flatMapped = numbers2.flatMap { Array(repeating: $0, count: $0) }
 // [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+
