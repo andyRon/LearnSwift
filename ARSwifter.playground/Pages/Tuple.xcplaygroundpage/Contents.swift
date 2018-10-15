@@ -1,4 +1,4 @@
-/*
+/*:
  Swift，使用了多元组的方式来同时返回被分割的部分和剩余部分：
  
  extension CGRect {
@@ -7,6 +7,8 @@
  -> (slice: CGRect, remainder: CGRect)
  //...
  }
+ 
+ 
   */
 
 import UIKit
