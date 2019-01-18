@@ -18,6 +18,7 @@
 
 
 ### 目录
+
 - 1 The Basics  基础
 - 2 Basic Operators 基础运算符
 - 3 Strings and Characters	字符串和字符
@@ -48,12 +49,4 @@
 - lazy	惰性求值
 - where 用法总结
 
---------------
-待处理
-https://nshipster.com/swift-property-observers/
 
-
-
-元组高级
-
-https://swift.gg/2015/10/10/tuples-swift-advanced-usage-best-practices/

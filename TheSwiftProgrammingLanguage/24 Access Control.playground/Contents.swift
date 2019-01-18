@@ -99,3 +99,11 @@ public struct TrackedString2 {
 // 11 类型别名
 //  类型别名的访问级别不可高于其表示的类型的访问级别
 
+
+/*
+ 常量，变量，属性和下标的getter和setter自动获得与它们所属的常量，变量，属性或下标相同的访问级别。
+ 
+ 您可以为setter提供比其对应的getter更低的访问级别，以限制该变量，属性或下标的读写范围。 您可以通过在var或下标介绍器之前编写fileprivate（set），private（set）或internal（set）来分配较低的访问级别。
+ 
+ 此规则适用于存储的属性以及计算的属性。 即使您没有为存储的属性编写显式的getter和setter，Swift仍然会合成一个隐式的getter和setter，以便您提供对存储属性的后备存储的访问。 使用fileprivate(set), private(set), and internal(set)来更改此合成setter的访问级别，其方式与计算属性中的显式setter完全相同。
+ */
