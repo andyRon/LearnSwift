@@ -5,18 +5,23 @@
 // 1 for in
 // for in 可用来遍历 Array Dictionary Set Range String
 for index in 1...5 {
+  print(index)
 }
 for _ in 1...5 {
 }
 for v in [1,2,3] {
+  print(v)
 }
 let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
 for (animalName, legCount) in numberOfLegs {
+  print("\(animalName) have \(legCount) leg.")
 }
 let countrys:Set = ["China", "USA", "Japan"]
 for country in countrys {
+  print(country)
 }
-for s in "andyron" {
+for c in "andyron" {
+  print(c)
 }
 
 // 2 while
@@ -113,6 +118,8 @@ default:
 }
 
 // 5 控制转移语句(Control Transfer Statements):   continue break fallthrough return throw
+// continue 语句告诉一个循环体立刻停止本次循环，重新开始下次循环。
+// break 语句会立刻结束整个控制流的执行
 // 贯穿(Fallthrough) 执行完一个case后，继续向下执行
 let integerToDescribe = 5
 var description = "The number \(integerToDescribe) is"
@@ -155,7 +162,6 @@ func greet2(person: [String: String]) {
     print("I hope the weather is nice in \(location).")
 }
 
-
 // 7 检测 API 可用性
 if #available(iOS 10, macOS 10.12, *) {
     // 在 iOS 使用 iOS 10 的 API, 在 macOS 使用 macOS 10.12 的 API
@@ -163,4 +169,3 @@ if #available(iOS 10, macOS 10.12, *) {
     // 使用先前版本的 iOS 和 macOS 的 API
 }
 
-// 带标签的语句 ??

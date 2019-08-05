@@ -51,11 +51,24 @@ var f = "我是fuck"
 e ?? f                  // `e != nil ? e! : f` ， 可选类型`e`不是`nil`时，就`e!`,否则为`f`。（注意`??`前后要空格）
 
 // 7 区间运算符(Range Operators)
+// 闭区间运算符
 for index in 1...5 {
     print("\(index) * 5 = \(index * 5)")
 }
+// 半开区间运算符
 for index in 1..<5 {
     print("\(index) * 5 = \(index * 5)")
+}
+// 单侧区间运算符：往一侧无限延伸的区间
+let names = ["Anna", "Alex", "Brian", "Jack"]
+for name in names[...2] {
+  print(name)
+  /*
+   结果：
+   Anna
+   Alex
+   Brian
+  */
 }
 
 // 逻辑运算(Logical Operators) 操作对象是逻辑布尔值
@@ -65,3 +78,5 @@ var youbool = true
 mybool && youbool
 mybool || youbool
 
+
+/// 更多运算符，可查看[Swift运算符声明](https://developer.apple.com/documentation/swift/swift_standard_library/operator_declarations)

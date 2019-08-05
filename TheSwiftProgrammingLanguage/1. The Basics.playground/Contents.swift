@@ -31,7 +31,7 @@ print("The current value of constants is \(constants)")
   */
  */
 
-// 3 分号(Semicolons)   单行单挑语句不一定需要，单行多条语句必须
+// 3 分号(Semicolons)   单行单条语句不一定需要，单行多条语句必须
 let cat = "?"; print(cat)
 
 // 4 整数(Integers)
@@ -153,8 +153,22 @@ do {
     // buyGroceries
 }
 
-// 14 断言(assertion)
+// 14 断言(assertion)和先决条件
+// assert(_:_:file:line:)
 let age = -3
 //assert(age >= 0, "A person's age cannot be less than zero")
 
+// 如果代码已经检查了条件，你可以使用 assertionFailure(_:file:line:) 函数来表明断言失败了
+if age > 10 {
+  print("You can ride the roller-coaster or the ferris wheel.")
+} else if age > 0 {
+  print("You can ride the ferris wheel.")
+} else {
+//  assertionFailure("A person's age can't be less than zero.")
+  // 错误，输出： Fatal error: A person's age can't be less than zero.: file 1. The Basics.playground, line 165
+}
 
+
+// precondition(_:_:file:line:)
+let index = -1
+//precondition(index > 0, "Index must be greater than zero.")

@@ -19,7 +19,7 @@ variableString += " and carriage"
 //constantString += " and another Highlander"
 
 // 4 字符串是值类型(Strings Are Value Types)
-// 在实际编译时，Swift 编译器会优化字符串的使用，使实际的复制只发生在绝对必要的情况下，这意味着您将字符串作为值类型的同时可以获得极高的性能。
+// 在实际编译时，Swift编译器会优化字符串的使用，使实际的复制只发生在绝对必要的情况下，这意味着您将字符串作为值类型的同时可以获得极高的性能。
 
 // 5 使用字符(Working with Characters)
 for character in "Dog!?🐶" {
@@ -70,6 +70,8 @@ let range = welcome.index(welcome.endIndex, offsetBy: -6) ..< welcome.endIndex
 welcome.removeSubrange(range)                                                                   // welcome now equals "hello"
 
 // 11 比较字符串 (Comparing Strings)
+// 字符串字符相等：==，!=
+// 前缀/后缀相等：hasPrefix(_:) / hasSuffix(_:)
 
 // 12 字符串的 Unicode 表示形式(Unicode Representations of Strings)
 

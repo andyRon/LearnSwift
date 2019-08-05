@@ -1,7 +1,7 @@
 /**
  Collection Type  集合类型
  */
-// Collection 分为 Arrays, Sets, Dictionaries(Collection，Sets有时都翻译成集合)
+// Collection 分为 Arrays, Sets, Dictionaries(Collection、Sets有时都翻译成集合，注意区分)
 
 // 1 数组(Arrays)是有序数据的集。
 // 一个数组中只能有一种数据类型
@@ -49,9 +49,9 @@ let name = "andyron"
 let arr3 = [Int?](repeating: nil, count: 20)
 
 // 2 集合(Sets)是无序无重复数据的集。
-// 存在集合的中数据类型必须是 可哈希化（必须提供一个方法来计算它的哈希值， 相等的对象哈希值必须相同，  a.hashValue == b.hashValue）
+// 存在集合的中数据类型必须是 可哈希化（必须提供一个方法来计算它的哈希值， 相等的对象哈希值必须相同，a.hashValue == b.hashValue）
 // Swift的所有基本类型(比如 String , Int , Double 和 Bool)默认都是可哈希化的
-// 在Swift内部可哈希化的类型都接触了`Hashable`协议，它提高了一个属性`hashValue`
+// 在Swift内部可哈希化的类型都遵循了`Hashable`协议，它提供了一个属性`hashValue`
 var letters = Set<Character>()                                      // 创建和构造一个空的类型为`Set<Character>`的集合
 letters.insert("a")
 letters = []
